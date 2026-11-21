@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - SkillSwap</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="container nav-content">
+
+        <a href="/" class="logo">
+            Skill<span>Swap.</span>
+        </a>
+
+        <div class="nav-links">
+
+            <span id="userName"></span>
+
+            <button class="btn" id="logoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<main class="container dashboard">
+
+    <div class="dashboard-heading">
+
+        <div>
+            <span class="tag">YOUR COMMUNITY</span>
+
+            <h1 id="welcomeText">Dashboard</h1>
+
+            <p>
+                Discover skills and exchange knowledge.
+            </p>
+        </div>
+
+        <button class="btn" id="openSkillModal">
+            + Add Skill
+        </button>
+
+    </div>
+
+
+    <div class="dashboard-tabs">
+
+        <button class="tab active" data-tab="discover">
+            Discover Skills
+        </button>
+
+        <button class="tab" data-tab="mySkills">
+            My Skills
+        </button>
+
+        <button class="tab" data-tab="requests">
+            Exchange Requests
+        </button>
+
+    </div>
+
+
+    <!-- DISCOVER SKILLS -->
+
+    <section id="discover" class="tab-content">
+
+        <h2>Find Skills</h2>
+
+        <div class="filters">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search skills..."
+            >
+
+            <select id="typeFilter">
+
+                <option value="">All Types</option>
+
+                <option value="OFFER">
+                    Skills to Learn
+                </option>
+
+                <option value="LEARN">
+                    People Seeking Skills
+                </option>
+
+            </select>
+
+        </div>
+
+        <div id="skillsContainer" class="skills-grid"></div>
+
+    </section>
+
+
+    <!-- MY SKILLS -->
+
+    <section id="mySkills" class="tab-content" hidden>
+
+        <h2>My Skills</h2>
+
+        <p class="section-description">
+            Manage the skills you offer and want to learn.
+        </p>
+
+        <div id="mySkillsContainer" class="skills-grid"></div>
+
+    </section>
+
+
+    <!-- REQUESTS -->
+
+    <section id="requests" class="tab-content" hidden>
+
+        <h2>Exchange Requests</h2>
+
+        <div id="requestsContainer"></div>
+
+    </section>
+
+</main>
+
+
+<!-- ADD SKILL MODAL -->
+
+<div class="modal" id="skillModal">
+
+    <form class="modal-box" id="skillForm">
+
+        <div class="modal-heading">
+
+            <h2>Add New Skill</h2>
+
+            <button type="button" class="close-btn" data-close>
+                &times;
+            </button>
+
+        </div>
+
+        <div id="skillMessage" class="message"></div>
+
+        <div class="form-group">
+
+            <label>Skill Title</label>
+
+            <input
+                type="text"
+                name="title"
+                placeholder="Example: Web Development"
+                maxlength="120"
+                required
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Category</label>
+
+            <select name="category" required>
+
+                <option value="">Select Category</option>
+
+                <option>Technology</option>
+                <option>Design</option>
+                <option>Languages</option>
+                <option>Business</option>
+                <option>Education</option>
+                <option>Music</option>
+                <option>Arts</option>
+                <option>Fitness</option>
+                <option>Other</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Skill Type</label>
+
+            <select name="skill_type" required>
+
+                <option value="OFFER">
+                    I Can Teach This
+                </option>
+
+                <option value="LEARN">
+                    I Want To Learn This
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Description</label>
+
+            <textarea
+                name="description"
+                placeholder="Describe your skill..."
+                maxlength="700"
+                required
+            ></textarea>
+
+        </div>
+
+        <button class="btn full-btn">
+            Publish Skill
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- EXCHANGE MODAL -->
+
+<div class="modal" id="exchangeModal">
+
+    <form class="modal-box" id="exchangeForm">
+
+        <div class="modal-heading">
+
+            <h2>Propose Exchange</h2>
+
+            <button type="button" class="close-btn" data-close>
+                &times;
+            </button>
+
+        </div>
+
+        <p id="wantedSkillText"></p>
+
+        <input type="hidden" name="wanted_skill_id" id="wantedSkillId">
+
+        <div class="form-group">
+
+            <label>Select Your Skill to Offer</label>
+
+            <select
+                name="offered_skill_id"
+                id="offeredSkillSelect"
+                required
+            ></select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Message</label>
+
+            <textarea
+                name="message"
+                placeholder="Explain your exchange proposal..."
+                maxlength="500"
+            ></textarea>
+
+        </div>
+
+        <div id="exchangeMessage" class="message"></div>
+
+        <button class="btn full-btn">
+            Send Exchange Request
+        </button>
+
+    </form>
+
+</div>
+
+
+<script src="/js/dashboard.js"></script>
+
+</body>
+</html>

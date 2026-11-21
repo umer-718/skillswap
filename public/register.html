@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register - SkillSwap</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="container nav-content">
+        <a href="/" class="logo">Skill<span>Swap.</span></a>
+        <a href="/login">Login</a>
+    </div>
+</nav>
+
+<div class="auth-container">
+
+    <form class="auth-box" id="registerForm">
+
+        <span class="tag">JOIN OUR COMMUNITY</span>
+
+        <h2>Create Account</h2>
+
+        <p>Start sharing and learning new skills.</p>
+
+        <div id="message" class="message"></div>
+
+        <div class="form-group">
+            <label>Full Name</label>
+            <input
+                type="text"
+                name="name"
+                placeholder="Your full name"
+                maxlength="100"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Email Address</label>
+            <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input
+                type="password"
+                name="password"
+                placeholder="Minimum 8 characters"
+                minlength="8"
+                required
+            >
+        </div>
+
+        <button class="btn full-btn" type="submit">
+            Create Account
+        </button>
+
+        <p class="auth-bottom">
+            Already registered?
+            <a href="/login">Login</a>
+        </p>
+
+    </form>
+
+</div>
+
+<script src="/js/auth.js"></script>
+
+</body>
+</html>
